@@ -6,38 +6,26 @@
     >
       <b-form-input v-model="newTodo" />
       <b-input-group-append>
-        <b-button @click="addTodo">
+        <b-button @click="addEntry">
           Add
         </b-button>
       </b-input-group-append>
     </b-input-group>
 
     <ul class="list-group p-5">
-      <li
+      <TodoItem
         v-for="(item, index) in todos"
         :key="index"
+        :item="item"
+        :index="index"
         class="
           list-group-item
           d-flex
           justify-content-between
           align-items-center
         "
-      >
-        <label v-if="!item.done">{{ item.title }}</label>
-        <del v-else>{{ item.title }}</del>
-
-        <label>{{ item.date }}</label>
-
-        <span>
-          <b-button @click="toggleCompletion(index)">
-            {{ item.done ? "Uncompleted" : "Completed" }}
-          </b-button>
-          <b-button
-            variant="danger"
-            @click="removeTodo(index)"
-          > X </b-button>
-        </span>
-      </li>
+        @remove="removeEntry"
+      />
     </ul>
   </div>
 </template>
@@ -45,7 +33,12 @@
 <script>
 import { mapState } from "vuex";
 
+import TodoItem from "./TodoItem.vue";
+
 export default {
+  components: {
+    TodoItem,
+  },
   data() {
     return {
       newTodo: "",
@@ -53,17 +46,17 @@ export default {
   },
   computed: mapState(["todos"]),
   methods: {
-    addTodo: function () {
+    addEntry: function () {
       const todoEntry = {
         title: this.newTodo,
         done: false,
         date: new Date().toLocaleString(),
       };
 
-      this.$store.commit("addTodo", todoEntry);
       this.newTodo = "";
+      this.$store.commit("addTodo", todoEntry);
     },
-    removeTodo: function (index) {
+    removeEntry: function (index) {
       this.$store.dispatch("removeTodo", index);
     },
   },

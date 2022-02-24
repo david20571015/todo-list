@@ -14,6 +14,9 @@ const store = new Vuex.Store({
     removeTodoEntry(state, index) {
       state.todos.splice(index, 1);
     },
+    toggleDone(state, index) {
+      state.todos[index].done = !state.todos[index].done;
+    }
   },
   actions: {
     removeTodo({ commit }, index) {
