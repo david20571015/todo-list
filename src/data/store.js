@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    todos: [{ title: "test", date: new Date().toLocaleString() }],
+    todos: [],
   },
   mutations: {
     addTodo(state, todo) {
