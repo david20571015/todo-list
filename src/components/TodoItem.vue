@@ -1,7 +1,6 @@
 <template>
-  <li>
-    <label v-if="!item.done">{{ item.title }}</label>
-    <del v-else>{{ item.title }}</del>
+  <li :style="[item.done ? {'background-color':'#a0d8ef'} : {'background-color':'#ee827c'}]">
+    <label>{{ item.title }}</label>
 
     <label>{{ item.date }}</label>
 
@@ -23,11 +22,11 @@ export default {
     item: { type: Object, required: true },
     index: { type: Number, required: true },
   },
-  methods:{
-      toggleDone: function(index){
-        this.$store.commit("toggleDone", index);
-        console.log(index);
-      },
-  }
+  methods: {
+    toggleDone: function (index) {
+      this.$store.commit("toggleDone", index);
+      console.log(index);
+    },
+  },
 };
 </script>
