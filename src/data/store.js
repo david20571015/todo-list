@@ -16,6 +16,10 @@ const store = new Vuex.Store({
     },
     toggleDone(state, index) {
       state.todos[index].done = !state.todos[index].done;
+    },
+    updateTitle(state, { index, title }) {
+      console.log(index, title);
+      state.todos[index].title = title;
     }
   },
   actions: {
