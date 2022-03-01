@@ -2,19 +2,16 @@
 <template>
   <div id="app">
     <h1>Todo List</h1>
-    <TodoList />
+
+    <p>
+      <router-link to="/">
+        Home
+      </router-link>
+    </p>
+
+    <router-view />
   </div>
 </template>
-
-<script>
-import TodoList from "./components/TodoList.vue";
-
-export default {
-  components: {
-    TodoList,
-  },
-};
-</script>
 
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style>
