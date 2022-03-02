@@ -1,5 +1,5 @@
 <template>
-  <li :style="[item.done ? {'background-color':'#a0d8ef'} : {'background-color':'#ee827c'}]">
+  <li :style="[item.done ? {'background-color':'#698aab'} : {'background-color':'#a0d8ef'}]">
     <label v-if="!isEditing">{{ item.title }}</label>
     <b-form-input
       v-else
