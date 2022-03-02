@@ -5,7 +5,10 @@
 
     <p>
       <router-link to="/">
-        Home
+        <b-button>Home</b-button>
+      </router-link>
+      <router-link to="/statistics">
+        <b-button>Statistics</b-button>
       </router-link>
     </p>
 
