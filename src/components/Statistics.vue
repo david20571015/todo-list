@@ -10,7 +10,7 @@
       />
     </div>
     <div class="pro-bar">
-      <h4>Undone</h4>
+      <h4>In process</h4>
       <b-progress
         :value="numOfUndoneTodos()"
         :max="numOfTodos()"

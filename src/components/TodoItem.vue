@@ -15,7 +15,7 @@
 
     <span>
       <b-button @click="toggleDone(index)">
-        {{ item.done ? "Uncompleted" : "Completed" }}
+        {{ item.done ? "Incompleted" : "Completed" }}
       </b-button>
       <b-button
         variant="danger"
