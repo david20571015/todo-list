@@ -1,5 +1,5 @@
 <template>
-  <li :style="[item.done ? {'background-color':'#698aab'} : {'background-color':'#a0d8ef'}]">
+  <li :style="{'background-color':`${item.done ? '#698aab' : '#a0d8ef'}`}">
     <label v-if="!isEditing">{{ item.title }}</label>
     <b-form-input
       v-else
@@ -52,7 +52,6 @@ export default {
     removeEntry: function (index) {
       this.$store.commit("removeTodoEntry", index);
     },
-
   },
 };
 </script>
