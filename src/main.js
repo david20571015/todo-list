@@ -6,22 +6,14 @@ import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
-import TodoList from "./components/TodoList.vue";
-import Statistics from "./components/Statistics.vue";
-import store from "./data/store";
+import router from "./router";
+import store from "./store";
 
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
 Vue.config.productionTip = false;
-
-const routes = [
-  { path: "/", component: TodoList },
-  { path: "/statistics", component: Statistics }
-];
-
-const router = new VueRouter({ routes });
 
 new Vue({
   router,
