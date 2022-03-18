@@ -32,7 +32,7 @@
 <script>
 import { mapState } from "vuex";
 
-import TodoItem from "./TodoItem.vue";
+import TodoItem, { Item } from "./TodoItem.vue";
 
 export default {
   components: {
@@ -46,11 +46,11 @@ export default {
   computed: mapState(["todos"]),
   methods: {
     addEntry: function () {
-      const todoEntry = {
-        title: this.newTodo,
-        done: false,
-        date: new Date().toLocaleString(),
-      };
+      const todoEntry = new Item(
+        this.newTodo,
+        new Date().toLocaleString(),
+        false
+      );
 
       this.newTodo = "";
       this.$store.commit("addTodo", todoEntry);

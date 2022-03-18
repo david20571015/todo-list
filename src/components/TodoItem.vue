@@ -26,9 +26,17 @@
 </template>
 
 <script>
+export class Item {
+  constructor(title, date, done) {
+    this.title = title;
+    this.date = date;
+    this.done = done;
+  }
+}
+
 export default {
   props: {
-    item: { type: Object, required: true },
+    item: { type: Item, required: true },
     index: { type: Number, required: true },
   },
   data() {
