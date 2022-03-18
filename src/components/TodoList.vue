@@ -57,7 +57,7 @@ export default {
       this.$store.commit("addTodo", todoEntry);
     },
     removeEntry: function (index) {
-      this.$store.dispatch("removeTodo", index);
+      this.$store.commit("removeTodoEntry", index);
     },
   },
 };

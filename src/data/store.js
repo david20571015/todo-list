@@ -22,11 +22,6 @@ const store = new Vuex.Store({
       state.todos[index].title = title;
     },
   },
-  actions: {
-    removeTodo({ commit }, index) {
-      commit("removeTodoEntry", index);
-    },
-  },
   getters: {
     doneTodos: (state) => {
       return state.todos.filter((todo) => todo.done);
