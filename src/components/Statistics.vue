@@ -22,16 +22,11 @@
 </template>
 
 <script>
-import { useVuex } from "@vueblocks/vue-use-vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  setup() {
-    const { useGetters } = useVuex();
-    return {
-      ...useGetters(["doneTodos", "undoneTodos"]),
-    };
-  },
   computed: {
+    ...mapGetters({ doneTodos: "doneTodos", undoneTodos: "undoneTodos" }),
     numOfTodos: function () {
       return this.doneTodos.length + this.undoneTodos.length;
     },
