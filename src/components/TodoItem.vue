@@ -19,7 +19,7 @@
       </b-button>
       <b-button
         variant="danger"
-        @click="$emit('remove', index)"
+        @click="removeEntry(index)"
       > X </b-button>
     </span>
   </li>
@@ -49,6 +49,10 @@ export default {
       this.$store.commit("toggleDone", index);
       console.log(index);
     },
+    removeEntry: function (index) {
+      this.$store.commit("removeTodoEntry", index);
+    },
+
   },
 };
 </script>

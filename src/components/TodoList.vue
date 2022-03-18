@@ -24,7 +24,6 @@
           justify-content-between
           align-items-center
         "
-        @remove="removeEntry"
       />
     </ul>
   </div>
@@ -55,9 +54,6 @@ export default {
 
       this.newTodo = "";
       this.$store.commit("addTodo", todoEntry);
-    },
-    removeEntry: function (index) {
-      this.$store.commit("removeTodoEntry", index);
     },
   },
 };
