@@ -4,12 +4,12 @@
     <h1>Todo List</h1>
 
     <p>
-      <router-link to="/">
-        <b-button>Home</b-button>
-      </router-link>
-      <router-link to="/statistics">
-        <b-button>Statistics</b-button>
-      </router-link>
+      <b-button to="/">
+        Home
+      </b-button>
+      <b-button to="/statistics">
+        Statistics
+      </b-button>
     </p>
 
     <router-view />
