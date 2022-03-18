@@ -4,7 +4,7 @@
     <b-form-input
       v-else
       v-model="newTitle"
-      :placeholder="[[item.title]]"
+      :placeholder="item.title"
     />
 
     <b-button @click="editTitle(newTitle)">
