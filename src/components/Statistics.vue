@@ -3,8 +3,8 @@
     <div class="pro-bar">
       <h4>Done</h4>
       <b-progress
-        :value="numOfDoneTodos()"
-        :max="numOfTodos()"
+        :value="doneTodos.length"
+        :max="numOfTodos"
         show-value
         variant="success"
       />
@@ -12,8 +12,8 @@
     <div class="pro-bar">
       <h4>In process</h4>
       <b-progress
-        :value="numOfUndoneTodos()"
-        :max="numOfTodos()"
+        :value="undoneTodos.length"
+        :max="numOfTodos"
         show-value
         variant="warning"
       />
@@ -22,16 +22,18 @@
 </template>
 
 <script>
+import { useVuex } from "@vueblocks/vue-use-vuex";
+
 export default {
-  methods: {
-    numOfDoneTodos: function () {
-      return this.$store.getters.doneTodos.length;
-    },
-    numOfUndoneTodos: function () {
-      return this.$store.getters.undoneTodos.length;
-    },
+  setup() {
+    const { useGetters } = useVuex();
+    return {
+      ...useGetters(["doneTodos", "undoneTodos"]),
+    };
+  },
+  computed: {
     numOfTodos: function () {
-      return this.numOfDoneTodos() + this.numOfUndoneTodos();
+      return this.doneTodos.length + this.undoneTodos.length;
     },
   },
 };
